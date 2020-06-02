@@ -764,78 +764,79 @@ function showmsg() {
       const coin = signinfo.sleepMorning.data.coin
       coin == 0 ? detail += `` : detail += `【早起结果】获得${coin}💰\n`
     }
-
-    // rainDropMsg
-    if (signinfo.rainList) {
-      for (const rains of signinfo.rainList) {
-        87
-        rains.code == 0 ? detail += `【金币雨滴】成功\n` : detail += ``
-      }
-    } else {
-      detail += `【金币雨滴】失败\n`
-    }
-
-    // navCoinMsg
-    if (signinfo.navCoin && signinfo.navCoin.code == 0) {
-      if (signinfo.coininfo.data) {
-        const cur_amount = signinfo.navCoin.data.cur_amount
-        const total_times = signinfo.navCoin.data.total_times
-        const done_times = signinfo.navCoin.data.done_times
-        done_times == 15 ? detail += `` : detail += `【首页奖励】${cur_amount} 💰, 完成${done_times} /${total_times}\n`
-      }
-    } else if (signinfo.navCoin && signinfo.navCoin.code == -308) {
-      detail += `【首页奖励】时间未到\n`
-    } else if (signinfo.navCoin && signinfo.navCoin.code == -2) {
-      detail += `【首页奖励】Cookie失效\n`
-    } else detail += `【首页奖励】失败或Cookie不存在\n`
-
-    // signLuckyMsg
-    subTitle += subTitle == '' ? '' : ' '
-    if (signinfo.signLucky && signinfo.signLucky.code == 1) {
-      subTitle += `幸运转盘:成功`
-      const amount_coin = signinfo.signLucky.amount_coin
-      const count = signinfo.signLucky.count
-      const count_limit = signinfo.signLucky.count_limit
-      detail += `【幸运转盘】获得${amount_coin},抽奖情况:${count}/${count_limit}次\n`
-    } else subTitle += ``
-
-    // luckyExtraMsg
-    if (signinfo.luckyList) {
-      const times = [3, 8, 15, 20, 30]
-      let i = 0
-      for (const extra of signinfo.luckyList) {
-        if (extra.code == 0) {
-          detail += `【转盘额外】次数:${times[i]} 获得${extra.reward_coin}💰\n`
-        } else if (extra.code == -2) {
-          detail += `【转盘额外】次数:${times[i]} 重复领取\n`
-        } else if (extra.code == -1) {
-          detail += `【转盘额外】次数:${times[i]} 当前次数未达到\n`
-        } else detail += `【转盘额外】未知错误\n`
-        i += 1
-      }
-    } else detail += `【转盘额外】失败`
-
-    // playAdsMsg
-    subTitle += subTitle == '' ? '' : ' '
-    if (signinfo.playList) {
-      if (signinfo.playList[0].code == 0) {
-        const icon = signinfo.info.data.signIn.ext_ad.icon
-        const coins = signinfo.info.data.show_balance_info.coins
-        const continuation = signinfo.info.data.signIn.continuation
-        for (const poss of icon) {
-          if (poss.next_time > 0) {
-            const time = tTime(poss.next_time)
-            detail += `【视频广告】下次🕥${time} 可获得${poss.amount}💰\n`
-          }
-        }
-        detail += `【账户详情】共计:${coins}💰,连续签到${continuation}天`
-      } else if (signinfo.playList[0].code == -126) subTitle += `广告:权限错误`
-    } else subTitle += `广告:失败`
-
-    senku.msg(cookieName + ` 用户:${name}`, subTitle, detail)
-    senku.done()
   }
+
+  // rainDropMsg
+  if (signinfo.rainList) {
+    for (const rains of signinfo.rainList) {
+      87
+      rains.code == 0 ? detail += `【金币雨滴】成功\n` : detail += ``
+    }
+  } else {
+    detail += `【金币雨滴】失败\n`
+  }
+
+  // navCoinMsg
+  if (signinfo.navCoin && signinfo.navCoin.code == 0) {
+    if (signinfo.coininfo.data) {
+      const cur_amount = signinfo.navCoin.data.cur_amount
+      const total_times = signinfo.navCoin.data.total_times
+      const done_times = signinfo.navCoin.data.done_times
+      done_times == 15 ? detail += `` : detail += `【首页奖励】${cur_amount} 💰, 完成${done_times} /${total_times}\n`
+    }
+  } else if (signinfo.navCoin && signinfo.navCoin.code == -308) {
+    detail += `【首页奖励】时间未到\n`
+  } else if (signinfo.navCoin && signinfo.navCoin.code == -2) {
+    detail += `【首页奖励】Cookie失效\n`
+  } else detail += `【首页奖励】失败或Cookie不存在\n`
+
+  // signLuckyMsg
+  subTitle += subTitle == '' ? '' : ' '
+  if (signinfo.signLucky && signinfo.signLucky.code == 1) {
+    subTitle += `幸运转盘:成功`
+    const amount_coin = signinfo.signLucky.amount_coin
+    const count = signinfo.signLucky.count
+    const count_limit = signinfo.signLucky.count_limit
+    detail += `【幸运转盘】获得${amount_coin},抽奖情况:${count}/${count_limit}次\n`
+  } else subTitle += ``
+
+  // luckyExtraMsg
+  if (signinfo.luckyList) {
+    const times = [3, 8, 15, 20, 30]
+    let i = 0
+    for (const extra of signinfo.luckyList) {
+      if (extra.code == 0) {
+        detail += `【转盘额外】次数:${times[i]} 获得${extra.reward_coin}💰\n`
+      } else if (extra.code == -2) {
+        detail += `【转盘额外】次数:${times[i]} 重复领取\n`
+      } else if (extra.code == -1) {
+        detail += `【转盘额外】次数:${times[i]} 当前次数未达到\n`
+      } else detail += `【转盘额外】未知错误\n`
+      i += 1
+    }
+  } else detail += `【转盘额外】失败`
+
+  // playAdsMsg
+  subTitle += subTitle == '' ? '' : ' '
+  if (signinfo.playList) {
+    if (signinfo.playList[0].code == 0) {
+      const icon = signinfo.info.data.signIn.ext_ad.icon
+      const coins = signinfo.info.data.show_balance_info.coins
+      const continuation = signinfo.info.data.signIn.continuation
+      for (const poss of icon) {
+        if (poss.next_time > 0) {
+          const time = tTime(poss.next_time)
+          detail += `【视频广告】下次🕥${time} 可获得${poss.amount}💰\n`
+        }
+      }
+      detail += `【账户详情】共计:${coins}💰,连续签到${continuation}天`
+    } else if (signinfo.playList[0].code == -126) subTitle += `广告:权限错误`
+  } else subTitle += `广告:失败`
+
+  senku.msg(cookieName + ` 用户:${name}`, subTitle, detail)
+  senku.done()
 }
+
 
 function init() {
   isSurge = () => {
