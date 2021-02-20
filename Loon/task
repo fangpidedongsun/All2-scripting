@@ -2,8 +2,8 @@
 
 hostname = api.m.jd.com, wq.jd.com, draw.jdfcloud.com, jdjoy.jd.com, account.huami.com
 
-
-cron ”0 7 * * *“ script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_sign.js,tag=京东极速版
+# 京东极速版
+cron "3 7 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_sign.js,tag=京东极速版
 
 # 京豆变动通知
 cron "2 9 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_bean_change.js, tag=京豆变动通知
