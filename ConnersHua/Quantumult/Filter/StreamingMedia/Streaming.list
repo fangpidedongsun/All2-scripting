@@ -129,6 +129,7 @@ DOMAIN-SUFFIX,hbogo.com,Streaming
 DOMAIN-SUFFIX,hbonow.com,Streaming
 USER-AGENT,HBOMAX*,Streaming
 DOMAIN-SUFFIX,hbomax.com,Streaming
+DOMAIN-SUFFIX,hbomaxcdn.com,Streaming
 # > HBO GO HKG
 USER-AGENT,HBO%20GO%20PROD%20HKG*,Streaming
 DOMAIN-SUFFIX,hbogoasia.com,Streaming
@@ -206,7 +207,7 @@ DOMAIN-SUFFIX,netflixdnstest6.com,Streaming
 DOMAIN-SUFFIX,netflixdnstest7.com,Streaming
 DOMAIN-SUFFIX,netflixdnstest8.com,Streaming
 DOMAIN-SUFFIX,netflixdnstest9.com,Streaming
-DOMAIN-KEYWORD,dualstack.apiproxy-device-prod-nlb-,Streaming
+DOMAIN-KEYWORD,dualstack.apiproxy-,Streaming
 DOMAIN-KEYWORD,dualstack.ichnaea-web-,Streaming
 IP-CIDR,23.246.0.0/18,Streaming
 IP-CIDR,37.77.184.0/21,Streaming
@@ -228,6 +229,16 @@ DOMAIN-SUFFIX,nimg.jp,Streaming
 # > Now E
 DOMAIN-SUFFIX,nowe.com,Streaming
 DOMAIN-SUFFIX,nowestatic.com,Streaming
+# > Paramount+
+USER-AGENT,PPlus*,Streaming
+DOMAIN-SUFFIX,cbsi.com,Streaming
+DOMAIN-SUFFIX,cbsaavideo.com,Streaming
+DOMAIN-SUFFIX,cbsivideo.com,Streaming
+DOMAIN-SUFFIX,paramountplus.com,Streaming
+DOMAIN-SUFFIX,pplusstatic.com,Streaming
+DOMAIN,cbsi.live.ott.irdeto.com,Streaming
+DOMAIN,cbsplaylistserver.aws.syncbak.com,Streaming
+DOMAIN,cbsservice.aws.syncbak.com,Streaming
 # > PBS
 USER-AGENT,PBS*,Streaming
 DOMAIN-SUFFIX,pbs.org,Streaming
