@@ -1,6 +1,4 @@
-#!name=取消绑定京东店铺会员
-#!desc=
-# Update at 2021.04.24
+#取消绑定京东店铺会员
 
 [URL Rewrite]
 ^https:\/\/shopmember\.m\.jd\.com\/shopcard\/\?(venderId=[0-9]+).* https:\/\/shopmember\.m\.jd\.com\/member\/memberCloseAccount\?$1 302
